@@ -1,1 +1,1 @@
-"# blog-for-officeworker" 
+"Set first django environment" 

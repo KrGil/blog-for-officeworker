@@ -5,8 +5,8 @@ class Article(models.Model):
     DEVELOPMET = "dv"
     PERSONAL = "ps"
     CATEGORY_CHOICES = (
-        (DEVELOPMET, "dvelopment"),
         (PERSONAL, "personal"),
+        (DEVELOPMET, "dvelopment"),
     )
     title = models.CharField(max_length=200)
     content = models.TextField()

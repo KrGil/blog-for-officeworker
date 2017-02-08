@@ -1,6 +1,12 @@
 from django.db import models
 
 # Create your models here.
+class HashTag(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
 class Article(models.Model):
     DEVELOPMET = "dv"
     PERSONAL = "ps"
@@ -16,6 +22,8 @@ class Article(models.Model):
         default=DEVELOPMET,
     )
 
+    hashtag = models.ManyToManyField(HashTag)
+
     def __str__(self):
         return self.title
 
@@ -27,8 +35,8 @@ class Comment(models.Model):
 
     def __str__(self):
         return "{}에 댓글: {}".format(self.article.title, self.content)
-class HashTag(models.Model):
-    name = models.CharField(max_length=50)
 
-    def __str__(self):
-        return self.name
+# 연결기능
+# class ArticleHasHashTag(models.Model):
+#     article = models.ForeignKey(Article)
+#     hashtag = models.ForeignKey(HashTag)
